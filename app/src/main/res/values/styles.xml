@@ -12,4 +12,10 @@
         <item name="cornerFamilyTopLeft">rounded</item>
         <item name="cornerFamilyTopRight">rounded</item>
     </style>
+    <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColor">#FF7B67</item>
+        <item name="android:fontFamily">@font/font_medium</item>
+        <item name="android:textSize">14sp</item>
+        <item name="colorPrimary">#FFFFFF</item>
+    </style>
 </resources>

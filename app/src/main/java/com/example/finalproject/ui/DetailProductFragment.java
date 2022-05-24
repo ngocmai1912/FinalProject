@@ -1,9 +1,12 @@
 package com.example.finalproject.ui;
 
+import static com.example.finalproject.MainActivity.mainCart;
+
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,7 +16,10 @@ import androidx.navigation.Navigation;
 import com.bumptech.glide.Glide;
 import com.example.finalproject.R;
 import com.example.finalproject.databinding.FragmentDetailProductBinding;
+import com.example.finalproject.model.CartProduct;
 import com.example.finalproject.model.Product;
+
+import java.util.List;
 
 public class DetailProductFragment extends Fragment {
     FragmentDetailProductBinding binding;
@@ -55,6 +61,17 @@ public class DetailProductFragment extends Fragment {
                 int amount = Integer.parseInt(binding.txtAmount.getText().toString());
                 if(amount > 1) amount--;
                 binding.txtAmount.setText(amount+"");
+            }
+        });
+        binding.btnAddToCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int amount = Integer.parseInt(binding.txtAmount.getText().toString());
+                CartProduct cartProduct = new CartProduct(product, amount);
+                List<CartProduct> list = mainCart.getCartProductList();
+                list.add(cartProduct);
+                mainCart.setCartProductList(list);
+                Toast.makeText(getContext(), "Đã thêm vào giỏ hàng!", Toast.LENGTH_SHORT).show();
             }
         });
         binding.btnBack.setOnClickListener(new View.OnClickListener() {

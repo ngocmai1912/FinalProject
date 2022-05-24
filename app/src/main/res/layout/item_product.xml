@@ -65,14 +65,14 @@
                 app:layout_constraintTop_toTopOf="parent" />
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_detail"
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="25dp"
-                android:text="Chi tiết >>"
+                android:text="Chi tiết"
                 android:textSize="12sp"
                 android:textAllCaps="false"
                 android:background="@drawable/frame_btn"
-                android:layout_gravity="center"
-                android:layout_marginLeft="30dp"/>
+                android:layout_marginLeft="40dp"
+                android:layout_gravity="center"/>
         </LinearLayout>
     </LinearLayout>
 

@@ -3,12 +3,13 @@ package com.example.finalproject.model;
 import com.google.firebase.database.Exclude;
 import com.google.firebase.database.IgnoreExtraProperties;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
 @IgnoreExtraProperties
-public class Product {
-    private int id;
+public class Product implements Serializable {
+    private String id;
     private String name;
     private String des;
     private float price;
@@ -17,7 +18,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(int id, String name, String des, float price, String image) {
+    public Product(String id, String name, String des, float price, String image) {
         this.id = id;
         this.name = name;
         this.des = des;
@@ -25,11 +26,11 @@ public class Product {
         this.image = image;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -64,6 +65,7 @@ public class Product {
     public void setImage(String image) {
         this.image = image;
     }
+
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
@@ -73,5 +75,16 @@ public class Product {
         result.put("price", price);
         result.put("image", image);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", des='" + des + '\'' +
+                ", price=" + price +
+                ", image='" + image + '\'' +
+                '}';
     }
 }

@@ -44,5 +44,13 @@
         android:id="@+id/homeFragment"
         android:name="com.example.finalproject.ui.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_detailProductFragment"
+            app:destination="@id/detailProductFragment">
+            <argument
+                android:name="product"
+                app:argType="com.example.finalproject.model.Product" />
+        </action>
+    </fragment>
 </navigation>

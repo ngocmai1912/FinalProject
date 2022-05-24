@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.DetailProductFragment"
+    android:background="#ffffff">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    android:fillViewport="true">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    <RelativeLayout
+        android:id="@+id/layout_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:background="@drawable/img_p1"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/font_bold"
+            android:text="@string/app_name"
+            android:textColor="#000000"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/ic_back" />
+
+        <ImageButton
+            android:id="@+id/btn_cart"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/ic_cart" />
+
+    </RelativeLayout>
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/view_split"
+        android:layout_marginBottom="50dp"
+        />
+    <View
+        android:id="@+id/view_split"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_img"
+        android:layout_marginBottom="30dp"
+        />
+    <LinearLayout
+        android:id="@+id/layout_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view"
+        android:background="@drawable/frame_des"
+        android:paddingTop="25dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="20dp"
+        android:paddingLeft="20dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/txt_category"
+            android:text="Âm nhạc"
+            android:fontFamily="@font/font_medium"
+            android:textColor="#5C9DFF"
+            android:textSize="19sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:id="@+id/txt_product_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font_bold"
+            android:textSize="28sp"
+            android:textColor="#071529"
+            android:lineSpacingExtra="5dp"
+            android:layout_marginTop="5dp"
+            android:text="Wireless Headphone for Crazy Sound Lover"/>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp">
+            <TextView
+                android:id="@+id/txt_product_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:fontFamily="@font/font_medium"
+                android:textSize="20sp"
+                android:textColor="#071529"
+                android:lineSpacingExtra="5dp"
+                android:layout_marginTop="5dp"
+                android:text="$100"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@drawable/frame_amount">
+                <ImageButton
+                    android:id="@+id/btn_decrease"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_ellipse_62"
+                    android:src="@drawable/ic_decrease"/>
+                <TextView
+                    android:id="@+id/txt_amount"
+                    android:text="1"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/font_medium"
+                    android:textColor="#071529"
+                    android:textSize="15sp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="20dp"
+                    android:layout_height="wrap_content"/>
+                <ImageButton
+                    android:id="@+id/btn_increase"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:background="@drawable/ic_ellipse_62"
+                    android:src="@drawable/ic_increase"/>
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/txt_product_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/font_medium"
+            android:text="Ask to be pet then attack owners hand cats are cute and plop down in the middle where everybody walks or poop in the plant pot. Poop on floor and watch human clean up my cat stared at me he was sipping his tea, too just going to dip my paw in your coffee and do a taste test - oh never mind i forgot i don't like coffee - you can have that back now or kitty kitty pussy cat doll. "
+            android:textColor="#AB071529"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_add_to_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Thêm vào giỏ hàng"
+        android:padding="15dp"
+        android:textAllCaps="false"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/frame_btn"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout_info"
+        android:layout_marginBottom="30dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

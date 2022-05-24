@@ -69,6 +69,7 @@
                 android:layout_height="25dp"
                 android:text="Chi tiết"
                 android:textSize="12sp"
+                android:textColor="@color/white"
                 android:textAllCaps="false"
                 android:background="@drawable/frame_btn"
                 android:layout_marginLeft="40dp"

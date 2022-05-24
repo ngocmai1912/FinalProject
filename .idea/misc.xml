@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/drawable/border.xml" value="0.146" />
         <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/drawable/frame.xml" value="0.237" />
         <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/drawable/frame_amount.xml" value="0.2" />
         <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/drawable/frame_btn.xml" value="0.237" />
@@ -12,18 +13,26 @@
         <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/drawable/ic_decrease.xml" value="0.237" />
         <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/drawable/ic_decrease_c.xml" value="0.237" />
         <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/drawable/ic_ellipse_62.xml" value="0.237" />
+        <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/drawable/ic_email.xml" value="0.2595" />
         <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/drawable/ic_increase.xml" value="0.237" />
         <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/drawable/ic_increase_c.xml" value="0.237" />
+        <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/drawable/ic_log_out.xml" value="0.1" />
+        <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/drawable/ic_see.xml" value="0.2595" />
+        <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/drawable/ic_setting.xml" value="0.1" />
+        <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/drawable/ic_user.xml" value="0.1" />
+        <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/drawable/ic_warning.xml" value="0.2595" />
         <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/font/font.xml" value="0.284375" />
-        <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/layout/fragment_cart.xml" value="0.2" />
+        <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/layout/fragment_checkout.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/layout/fragment_detail_product.xml" value="0.2" />
-        <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/layout/fragment_login.xml" value="0.2" />
         <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/layout/fragment_product_info.xml" value="0.264" />
         <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/layout/fragment_register.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/layout/item_product.xml" value="0.264" />
         <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/layout/item_product_cart.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hoaha/Desktop/PTIT/Nam_4/II/android/FinalProject/app/src/main/res/menu/navigation_menu.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

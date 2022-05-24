@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -34,6 +36,7 @@ public class DetailProductFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         product = (Product) getArguments().getSerializable("product");
         if(product != null){
             binding.txtProductName.setText(product.getName());
@@ -80,5 +83,20 @@ public class DetailProductFragment extends Fragment {
                 Navigation.findNavController(view).navigateUp();
             }
         });
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        ActionBar supportActionBar = ((AppCompatActivity) requireActivity()).getSupportActionBar();
+        if (supportActionBar != null)
+            supportActionBar.hide();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        ActionBar supportActionBar = ((AppCompatActivity) requireActivity()).getSupportActionBar();
+        if (supportActionBar != null)
+            supportActionBar.show();
     }
 }

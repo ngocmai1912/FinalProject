@@ -4,6 +4,9 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -36,6 +39,8 @@ public class HomeFragment extends Fragment implements ProductItemAdapter.OnItemL
     ProductItemAdapter adapter;
     List<Product> listProduct;
     FirebaseDatabase mDatabase;
+//    DrawerLayout drawerLayout;
+//    ActionBarDrawerToggle actionBarDrawerToggle;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

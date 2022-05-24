@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -48,5 +50,20 @@ public class CartFragment extends Fragment {
         binding.listItem.setAdapter(adapter);
         binding.listItem.setLayoutManager(manager);
 
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        ActionBar supportActionBar = ((AppCompatActivity) requireActivity()).getSupportActionBar();
+        if (supportActionBar != null)
+            supportActionBar.hide();
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        ActionBar supportActionBar = ((AppCompatActivity) requireActivity()).getSupportActionBar();
+        if (supportActionBar != null)
+            supportActionBar.show();
     }
 }

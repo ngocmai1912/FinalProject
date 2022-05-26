@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cart implements Serializable {
-    private int id;
     private float totalPrice;
     private int totalProduct;
     private List<CartProduct> cartProductList;
@@ -14,8 +13,7 @@ public class Cart implements Serializable {
         cartProductList = new ArrayList<>();
     }
 
-    public Cart(int id, float totalPrice, int totalProduct, List<CartProduct> cartProductList) {
-        this.id = id;
+    public Cart( float totalPrice, int totalProduct, List<CartProduct> cartProductList) {
         this.totalPrice = totalPrice;
         this.totalProduct = totalProduct;
         this.cartProductList = cartProductList;
@@ -24,20 +22,12 @@ public class Cart implements Serializable {
     @Override
     public String toString() {
         return "Cart{" +
-                "id=" + id +
                 ", totalPrice=" + totalPrice +
                 ", totalProduct=" + totalProduct +
                 ", CartProduct=" + cartProductList +
                 '}';
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public float getTotalPrice() {
         float total = 0;

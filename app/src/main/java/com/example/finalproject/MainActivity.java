@@ -5,25 +5,20 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 
-import com.example.finalproject.model.Account;
 import com.example.finalproject.model.Cart;
-import com.example.finalproject.model.CartProduct;
 import com.example.finalproject.model.Product;
+import com.example.finalproject.ui.ChangePassDialog;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     NavHostFragment navHostFragment;
@@ -39,6 +34,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         fbAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser = fbAuth.getCurrentUser();
+        if(currentUser == null){
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+        }
         mainCart = new Cart();
         navHostFragment =(NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment);
         NavController navController = navHostFragment.getNavController();
@@ -96,14 +95,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        if(item.getItemId() == R.id.nav_account){
-            //TODO
-        } else if(item.getItemId() == R.id.nav_settings){
-            //TODO
+        if(item.getItemId() == R.id.nav_change_pass){
+            ChangePassDialog dialog = new ChangePassDialog();
+            dialog.show(getSupportFragmentManager(), "ChangePass");
+        } else if(item.getItemId() == R.id.nav_listOrder){
+            Intent intent = new Intent(this, OrderActivity.class);
+            startActivity(intent);
         }
         else{
             FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
         }
         return true;
     }
+
 }

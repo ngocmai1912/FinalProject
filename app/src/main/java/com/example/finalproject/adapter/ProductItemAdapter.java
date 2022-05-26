@@ -3,6 +3,7 @@ package com.example.finalproject.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -39,7 +40,12 @@ public class ProductItemAdapter extends RecyclerView.Adapter<ProductItemAdapter.
     public void setListProduct(List<Product> list){
         this.listProduct = list;
     }
+    public void clear(){
+        listProduct.clear();
+        notifyDataSetChanged();
+    }
     public void addItem(Product product){
+        Log.d("TAGLOG", "add adapter");
         listProduct.add(product);
         notifyDataSetChanged();
     }

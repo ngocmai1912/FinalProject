@@ -8,24 +8,22 @@ import java.util.Map;
 
 @IgnoreExtraProperties
 public class Account {
-    private int id;
+    private String id;
     private String username;
-    private String password;
 
     public Account() {
     }
 
-    public Account(int id, String username, String password) {
+    public Account(String id, String username) {
         this.id = id;
         this.username = username;
-        this.password = password;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -37,19 +35,11 @@ public class Account {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
     @Exclude
     public Map<String, Object> toMap() {
         HashMap<String, Object> result = new HashMap<>();
         result.put("id", id);
         result.put("username", username);
-        result.put("password", password);
         return result;
     }
 }

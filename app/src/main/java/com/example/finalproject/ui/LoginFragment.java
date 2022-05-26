@@ -1,5 +1,6 @@
 package com.example.finalproject.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.finalproject.MainActivity;
 import com.example.finalproject.R;
 import com.example.finalproject.databinding.FragmentLoginBinding;
 import com.google.firebase.auth.FirebaseAuth;
@@ -42,13 +44,13 @@ public class LoginFragment extends Fragment {
         fbAuth = FirebaseAuth.getInstance();
         FirebaseUser user = fbAuth.getCurrentUser();
         if(user != null){
-            Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_homeFragment);
+
         }
         else{
             binding.register.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_registerFragment);
+                   Navigation.findNavController(view).navigate(R.id.action_loginFragment2_to_registerFragment2);
                 }
             });
             binding.btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +76,8 @@ public class LoginFragment extends Fragment {
                         if(task.isSuccessful())
                         {
                             Toast.makeText(getContext(), "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
-                            Navigation.findNavController(view).navigate(R.id.action_loginFragment_to_homeFragment);
+                            Intent intent = new Intent(getContext(), MainActivity.class);
+                            startActivity(intent);
                         }
                         else
                         {

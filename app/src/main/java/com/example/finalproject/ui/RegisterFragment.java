@@ -84,11 +84,10 @@ public class RegisterFragment extends Fragment {
                                     // Sign in success, update UI with the signed-in user's information
                                     Log.d("TAGLOG", "createUserWithEmail:success");
                                     Toast.makeText(getContext(), "Đăng ký thành công!", Toast.LENGTH_SHORT).show();
-                                    Navigation.findNavController(view).navigate(R.id.action_registerFragment_to_loginFragment);
+                                    Navigation.findNavController(view).navigateUp();
                                 } else {
                                     Log.d("TAGLOG", "createUserWithEmail:failure", task.getException());
                                     Toast.makeText(getContext(), "Đăng ký không thành công. Vui lòng thử lại!", Toast.LENGTH_SHORT).show();
-
                                 }
                             }
                         });
@@ -97,7 +96,7 @@ public class RegisterFragment extends Fragment {
         binding.login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Navigation.findNavController(view).navigate(R.id.action_registerFragment_to_loginFragment);
+                Navigation.findNavController(view).navigateUp();
             }
         });
 

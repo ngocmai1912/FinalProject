@@ -30,9 +30,11 @@ public class CartProductItemAdapter extends RecyclerView.Adapter<CartProductItem
     Context context;
     List<CartProduct> listProduct;
     ProductItemAdapter.OnItemListener listener;
-    public CartProductItemAdapter(Context context, List<CartProduct> listProduct) {
+    Boolean checkInCheckOut;
+    public CartProductItemAdapter(Context context, List<CartProduct> listProduct, Boolean checkInCheckOut) {
         this.context = context;
         this.listProduct = listProduct;
+        this.checkInCheckOut = checkInCheckOut;
     }
 
     public CartProductItemAdapter(Context context){
@@ -59,6 +61,10 @@ public class CartProductItemAdapter extends RecyclerView.Adapter<CartProductItem
     @Override
     public void onBindViewHolder(@NonNull CartProductItemAdapter.ItemViewHolder holder, int position) {
         CartProduct product = listProduct.get(position);
+        if(checkInCheckOut){
+            holder.btnIncrease.setVisibility(View.GONE);
+            holder.btnDecrease.setVisibility(View.GONE);
+        }
         holder.txtName.setText(product.getProduct().getName());
         holder.txtPrice.setText(product.getProduct().getPrice()*product.getAmount()+" đ");
         holder.txtAmount.setText(product.getAmount()+"");

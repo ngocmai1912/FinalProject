@@ -18,9 +18,11 @@ import androidx.navigation.Navigation;
 import com.bumptech.glide.Glide;
 import com.example.finalproject.R;
 import com.example.finalproject.databinding.FragmentDetailProductBinding;
+import com.example.finalproject.model.Cart;
 import com.example.finalproject.model.CartProduct;
 import com.example.finalproject.model.Product;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DetailProductFragment extends Fragment {
@@ -70,9 +72,19 @@ public class DetailProductFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 int amount = Integer.parseInt(binding.txtAmount.getText().toString());
-                CartProduct cartProduct = new CartProduct(product, amount);
+                Boolean check = false;
                 List<CartProduct> list = mainCart.getCartProductList();
-                list.add(cartProduct);
+                for(CartProduct item : list){
+                    if(item.getProduct().equals(product)){
+                        item.setAmount(item.getAmount()+amount);
+                        check = true;
+                        break;
+                    }
+                }
+                if(!check){
+                    CartProduct cartProduct = new CartProduct(product, amount);
+                    list.add(cartProduct);
+                }
                 mainCart.setCartProductList(list);
                 Toast.makeText(getContext(), "Đã thêm vào giỏ hàng!", Toast.LENGTH_SHORT).show();
             }
@@ -81,6 +93,17 @@ public class DetailProductFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Navigation.findNavController(view).navigateUp();
+            }
+        });
+        binding.btnBuyNow.setOnClickListener(new View.OnClickListener() {
+            @Override
+
+            public void onClick(View view) {
+                List<CartProduct> list = new ArrayList<>();
+                int amount = Integer.parseInt(binding.txtAmount.getText().toString());
+                list.add(new CartProduct(product, amount));
+                mainCart = new Cart(product.getPrice()*amount, amount, list);
+                Navigation.findNavController(view).navigate(R.id.action_detailProductFragment_to_checkoutFragment);
             }
         });
     }

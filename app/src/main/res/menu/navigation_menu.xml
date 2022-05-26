@@ -4,13 +4,13 @@
     tools:ignore="HardcodedText">
 
     <item
-        android:id="@+id/nav_account"
-        android:title="Tài khoản của tôi"
-        android:icon="@drawable/ic_user"/>
+        android:id="@+id/nav_change_pass"
+        android:title="Đổi mật khẩu"
+        android:icon="@drawable/ic_change"/>
     <item
-        android:id="@+id/nav_settings"
-        android:title="Cài đặt"
-        android:icon="@drawable/ic_setting"/>
+        android:id="@+id/nav_listOrder"
+        android:title="Danh sách đơn hàng"
+        android:icon="@drawable/ic_list"/>
     <item
         android:id="@+id/nav_logout"
         android:title="Đăng xuất"

@@ -1,12 +1,20 @@
 package com.example.finalproject.ui;
 
+import static com.example.finalproject.MainActivity.mainCart;
+
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.app.SearchManager;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -23,7 +31,10 @@ import android.view.ViewGroup;
 import com.example.finalproject.R;
 import com.example.finalproject.adapter.ProductItemAdapter;
 import com.example.finalproject.databinding.FragmentHomeBinding;
+import com.example.finalproject.model.Cart;
+import com.example.finalproject.model.CartProduct;
 import com.example.finalproject.model.Product;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -38,8 +49,7 @@ public class HomeFragment extends Fragment implements ProductItemAdapter.OnItemL
     ProductItemAdapter adapter;
     List<Product> listProduct;
     FirebaseDatabase mDatabase;
-//    DrawerLayout drawerLayout;
-//    ActionBarDrawerToggle actionBarDrawerToggle;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -59,6 +69,7 @@ public class HomeFragment extends Fragment implements ProductItemAdapter.OnItemL
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 productList.clear();
+                adapter.clear();
                 listProduct = new ArrayList<>();
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
                     Product product = postSnapshot.getValue(Product.class);
@@ -71,6 +82,7 @@ public class HomeFragment extends Fragment implements ProductItemAdapter.OnItemL
                 System.out.println("The read failed: " );
             }
         });
+
         adapter.setClickListener(this);
         GridLayoutManager manager = new GridLayoutManager(getContext(), 2);
         rcv.setLayoutManager(manager);
@@ -85,6 +97,17 @@ public class HomeFragment extends Fragment implements ProductItemAdapter.OnItemL
         bundle.putSerializable("product", product);
         Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_detailProductFragment, bundle);
     }
+
+    @Override
+    public void onButtonClick(View view, int position) {
+        Product product = adapter.getItem(position);
+        List<CartProduct> list = new ArrayList<>();
+        int amount = 1;
+        list.add(new CartProduct(product, amount));
+        mainCart = new Cart(product.getPrice()*amount, amount, list);
+        Navigation.findNavController(view).navigate(R.id.action_homeFragment_to_cartFragment);
+    }
+
 
     public void search(String textSearch){
         mDatabase.getReference().child("product")

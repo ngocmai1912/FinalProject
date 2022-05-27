@@ -53,6 +53,8 @@ public class DetailOrderFragment extends Fragment {
         binding.txtDate.setText("Ngày đặt: " + order.getDate());
         binding.txtAddress.setText(order.getAddress());
         binding.txtPhone.setText(order.getPhoneNumber());
+        binding.txtTotalPriceProduct.setText((order.getTotalPrice()-25) + "");
+        binding.txtTotalPrice.setText(order.getTotalPrice()+"");
     }
     @Override
     public void onResume() {

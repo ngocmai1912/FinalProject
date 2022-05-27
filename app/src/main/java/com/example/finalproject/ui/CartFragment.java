@@ -5,6 +5,7 @@ import static com.example.finalproject.MainActivity.mainCart;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,7 +25,7 @@ import com.example.finalproject.model.Order;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class CartFragment extends Fragment {
+public class CartFragment extends Fragment implements CartProductItemAdapter.OnItemListener {
     FragmentCartBinding binding;
     CartProductItemAdapter adapter;
     @Override
@@ -53,13 +54,12 @@ public class CartFragment extends Fragment {
                             .setMessage("Bạn chưa có sản phẩm nào trong giỏ!")
                             .setPositiveButton("OK", null)
                             .show();
-
                 }
             }
         });
         binding.txtTotalProduct.setText(mainCart.getTotalProduct()+"");
         binding.txtTotalPrice.setText(mainCart.getTotalPrice()+"");
-        adapter = new CartProductItemAdapter(getContext(), mainCart.getCartProductList(), false);
+        adapter = new CartProductItemAdapter(getContext(), this, mainCart.getCartProductList(), false);
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         binding.listItem.setAdapter(adapter);
         binding.listItem.setLayoutManager(manager);
@@ -80,4 +80,12 @@ public class CartFragment extends Fragment {
         if (supportActionBar != null)
             supportActionBar.show();
     }
+
+    @Override
+    public void onClick() {
+        Log.d("TAGLOG", "gelele");
+        binding.txtTotalPrice.setText(mainCart.getTotalPrice()+"");
+        binding.txtTotalProduct.setText(mainCart.getTotalProduct()+"");
+    }
+
 }

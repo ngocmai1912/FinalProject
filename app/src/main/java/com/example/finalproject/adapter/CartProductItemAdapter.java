@@ -29,14 +29,19 @@ import java.util.List;
 public class CartProductItemAdapter extends RecyclerView.Adapter<CartProductItemAdapter.ItemViewHolder> {
     Context context;
     List<CartProduct> listProduct;
-    ProductItemAdapter.OnItemListener listener;
+    OnItemListener listener;
     Boolean checkInCheckOut;
+    public CartProductItemAdapter(Context context, OnItemListener listener, List<CartProduct> listProduct, Boolean checkInCheckOut) {
+        this.context = context;
+        this.listProduct = listProduct;
+        this.checkInCheckOut = checkInCheckOut;
+        this.listener = listener;
+    }
     public CartProductItemAdapter(Context context, List<CartProduct> listProduct, Boolean checkInCheckOut) {
         this.context = context;
         this.listProduct = listProduct;
         this.checkInCheckOut = checkInCheckOut;
     }
-
     public CartProductItemAdapter(Context context){
         listProduct = new ArrayList<>();
         this.context = context;
@@ -48,9 +53,9 @@ public class CartProductItemAdapter extends RecyclerView.Adapter<CartProductItem
         listProduct.add(product);
         notifyDataSetChanged();
     }
-    public void setClickListener(ProductItemAdapter.OnItemListener listener){
-        this.listener = listener;
-    }
+//    public void setClickListener(OnItemListener listener){
+//        this.listener = listener;
+//    }
     @NonNull
     @Override
     public CartProductItemAdapter.ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -71,23 +76,28 @@ public class CartProductItemAdapter extends RecyclerView.Adapter<CartProductItem
         holder.btnIncrease.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int p = mainCart.getCartProductList().indexOf(product);
                 int amount = Integer.parseInt(holder.txtAmount.getText().toString());
                 amount++;
+                mainCart.getCartProductList().get(p).setAmount(amount);
                 holder.txtAmount.setText(amount+"");
                 product.setAmount(amount);
                 holder.txtPrice.setText(product.getProduct().getPrice()*product.getAmount()+" đ");
+                listener.onClick();
             }
         });
         holder.btnDecrease.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int p = mainCart.getCartProductList().indexOf(product);
                 int amount = Integer.parseInt(holder.txtAmount.getText().toString());
                 if(amount > 1){
                     amount--;
+                    mainCart.getCartProductList().get(p).setAmount(amount);
                     holder.txtAmount.setText(amount+"");
                     product.setAmount(amount);
                     holder.txtPrice.setText(product.getProduct().getPrice()*product.getAmount()+" đ");
-
+                    listener.onClick();
                 }
                 else{
                     AlertDialog dialog = new AlertDialog.Builder(context, R.style.AlertDialogCustom)
@@ -97,8 +107,10 @@ public class CartProductItemAdapter extends RecyclerView.Adapter<CartProductItem
                             {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
+                                    mainCart.getCartProductList().remove(product);
                                     listProduct.remove(product);
                                     notifyDataSetChanged();
+                                    listener.onClick();
                                 }
 
                             })
@@ -117,7 +129,7 @@ public class CartProductItemAdapter extends RecyclerView.Adapter<CartProductItem
         return listProduct.size();
     }
 
-    public class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public class ItemViewHolder extends RecyclerView.ViewHolder{
         ShapeableImageView image;
         TextView txtName, txtPrice, txtAmount;
         AppCompatImageButton btnIncrease, btnDecrease;
@@ -130,16 +142,11 @@ public class CartProductItemAdapter extends RecyclerView.Adapter<CartProductItem
             btnDecrease = itemView.findViewById(R.id.btn_decrease);
             txtAmount  = itemView.findViewById(R.id.txt_amount);
         }
-
-        @Override
-        public void onClick(View view) {
-            listener.onClick(view, getAdapterPosition());
-        }
     }
     public CartProduct getItem(int position){
         return listProduct.get(position);
     }
     public interface OnItemListener{
-        public void onClick(View view, int position);
+        public void onClick();
     }
 }

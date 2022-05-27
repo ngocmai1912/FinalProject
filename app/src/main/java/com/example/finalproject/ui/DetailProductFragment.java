@@ -75,7 +75,7 @@ public class DetailProductFragment extends Fragment {
                 Boolean check = false;
                 List<CartProduct> list = mainCart.getCartProductList();
                 for(CartProduct item : list){
-                    if(item.getProduct().equals(product)){
+                    if(item.getProduct().getId() == product.getId()){
                         item.setAmount(item.getAmount()+amount);
                         check = true;
                         break;

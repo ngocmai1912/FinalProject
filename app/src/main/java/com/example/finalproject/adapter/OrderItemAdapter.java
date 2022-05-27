@@ -36,7 +36,6 @@ public class OrderItemAdapter extends RecyclerView.Adapter<OrderItemAdapter.Item
         this.listOrder = list;
     }
     public void addItem(Order Order){
-        Log.d("TAGLOG", "add adapter");
         listOrder.add(Order);
         notifyDataSetChanged();
     }
@@ -53,9 +52,9 @@ public class OrderItemAdapter extends RecyclerView.Adapter<OrderItemAdapter.Item
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         Order order = listOrder.get(position);
-        holder.txtID.setText(order.getId());
-        holder.txtDate.setText(order.getDate());
-        holder.txtStatus.setText(order.getStatus());
+        holder.txtID.setText("Mã đơn hàng: " + order.getId());
+        holder.txtDate.setText("Ngày đặt: " + order.getDate());
+        holder.txtStatus.setText("Trạng thái: " + order.getStatus());
     }
 
     @Override

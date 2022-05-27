@@ -101,6 +101,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view"
+        app:layout_constraintBottom_toTopOf="@id/ly"
         android:background="@drawable/frame_des"
         android:paddingTop="25dp"
         android:paddingRight="20dp"
@@ -178,12 +179,12 @@
             android:text="Ask to be pet then attack owners hand cats are cute and plop down in the middle where everybody walks or poop in the plant pot. Poop on floor and watch human clean up my cat stared at me he was sipping his tea, too just going to dip my paw in your coffee and do a taste test - oh never mind i forgot i don't like coffee - you can have that back now or kitty kitty pussy cat doll. "
             android:textColor="#AB071529"
             android:textSize="15sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
     </LinearLayout>
         <LinearLayout
+            android:id="@+id/ly"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"

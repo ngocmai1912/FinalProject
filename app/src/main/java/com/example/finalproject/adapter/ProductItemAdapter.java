@@ -1,5 +1,7 @@
 package com.example.finalproject.adapter;
 
+import static com.example.finalproject.MainActivity.mainCart;
+
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -14,10 +16,13 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.finalproject.R;
+import com.example.finalproject.model.Cart;
+import com.example.finalproject.model.CartProduct;
 import com.example.finalproject.model.Product;
 import com.google.android.material.imageview.ShapeableImageView;
 
@@ -45,7 +50,6 @@ public class ProductItemAdapter extends RecyclerView.Adapter<ProductItemAdapter.
         notifyDataSetChanged();
     }
     public void addItem(Product product){
-        Log.d("TAGLOG", "add adapter");
         listProduct.add(product);
         notifyDataSetChanged();
     }
@@ -75,14 +79,25 @@ public class ProductItemAdapter extends RecyclerView.Adapter<ProductItemAdapter.
     public class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         ShapeableImageView image;
         TextView txtName, txtPrice;
-        AppCompatButton btnDetail;
+        AppCompatButton btnBuy;
         public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
             txtName = itemView.findViewById(R.id.txt_product_name);
             txtPrice = itemView.findViewById(R.id.txt_product_price);
             image = itemView.findViewById(R.id.product_image);
-            btnDetail = itemView.findViewById(R.id.btn_detail);
-            btnDetail.setOnClickListener(this);
+            btnBuy = itemView.findViewById(R.id.btn_buy_now);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onClick(itemView, getAdapterPosition());
+                }
+            });
+            btnBuy.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onButtonClick(itemView, getAdapterPosition());
+                }
+            });
         }
 
         @Override
@@ -95,5 +110,6 @@ public class ProductItemAdapter extends RecyclerView.Adapter<ProductItemAdapter.
     }
     public interface OnItemListener{
         public void onClick(View view, int position);
+        public void onButtonClick(View view, int position);
     }
 }

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.RegisterFragment"
-    android:background="@drawable/bg_login">
+    android:background="#FFFFFF">
     <TextView
         android:id="@+id/tx"
         app:layout_constraintTop_toTopOf="parent"
@@ -106,7 +106,7 @@
         android:id="@+id/btn_register"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/frame_btn"
+        android:background="#36448B"
         android:text="ĐĂNG KÝ"
         android:textColor="@color/white"
         android:textAllCaps="false"
@@ -137,8 +137,8 @@
             android:text="Đăng nhập ngay"
             android:fontFamily="@font/font_medium"
             android:textSize="14sp"
-            android:textStyle="italic"
-            android:textColor="#FC4D4D"/>
+            android:textStyle="bold"
+            android:textColor="#36448B"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

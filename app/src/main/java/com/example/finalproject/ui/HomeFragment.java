@@ -87,7 +87,6 @@ public class HomeFragment extends Fragment implements ProductItemAdapter.OnItemL
         GridLayoutManager manager = new GridLayoutManager(getContext(), 2);
         rcv.setLayoutManager(manager);
         rcv.setAdapter(adapter);
-
     }
 
     @Override
